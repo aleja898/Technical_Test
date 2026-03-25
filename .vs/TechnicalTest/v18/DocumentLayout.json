@@ -1,0 +1,123 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{892563CD-30CE-42F3-B52A-95974BF84F7D}|TechnicalTest.Data\\TechnicalTest.Data.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.data\\entities\\technicaltestdatacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{892563CD-30CE-42F3-B52A-95974BF84F7D}|TechnicalTest.Data\\TechnicalTest.Data.csproj|solutionrelative:technicaltest.data\\entities\\technicaltestdatacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.classlibrary\\technicaltest.classlibrary.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|solutionrelative:technicaltest.classlibrary\\technicaltest.classlibrary.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.classlibrary\\interfaces\\ientitydelete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|solutionrelative:technicaltest.classlibrary\\interfaces\\ientitydelete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.classlibrary\\interfaces\\ientity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|solutionrelative:technicaltest.classlibrary\\interfaces\\ientity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 801,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TechnicalTest.ClassLibrary.csproj",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj",
+              "RelativeDocumentMoniker": "TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj",
+              "RelativeToolTip": "TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-20T16:11:13.266Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TechnicalTestDataContext.cs",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Data\\Entities\\TechnicalTestDataContext.cs",
+              "RelativeDocumentMoniker": "TechnicalTest.Data\\Entities\\TechnicalTestDataContext.cs",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Data\\Entities\\TechnicalTestDataContext.cs",
+              "RelativeToolTip": "TechnicalTest.Data\\Entities\\TechnicalTestDataContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T20:17:28.953Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IEntityDelete.cs",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\Interfaces\\IEntityDelete.cs",
+              "RelativeDocumentMoniker": "TechnicalTest.ClassLibrary\\Interfaces\\IEntityDelete.cs",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\Interfaces\\IEntityDelete.cs",
+              "RelativeToolTip": "TechnicalTest.ClassLibrary\\Interfaces\\IEntityDelete.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T20:12:47.363Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IEntity.cs",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\Interfaces\\IEntity.cs",
+              "RelativeDocumentMoniker": "TechnicalTest.ClassLibrary\\Interfaces\\IEntity.cs",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\Interfaces\\IEntity.cs",
+              "RelativeToolTip": "TechnicalTest.ClassLibrary\\Interfaces\\IEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T20:12:37.383Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 364,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
