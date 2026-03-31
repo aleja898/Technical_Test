@@ -8,6 +8,16 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.14" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TechnicalTest.ClassLibrary\TechnicalTest.ClassLibrary.csproj" />
+    <ProjectReference Include="..\TechnicalTest.Data\TechnicalTest.Data.csproj" />
+    <ProjectReference Include="..\TechnicalTest.Dtos\TechnicalTest.Dtos.csproj" />
   </ItemGroup>
 
 </Project>

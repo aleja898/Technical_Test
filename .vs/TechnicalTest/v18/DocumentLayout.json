@@ -3,20 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{892563CD-30CE-42F3-B52A-95974BF84F7D}|TechnicalTest.Data\\TechnicalTest.Data.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.data\\entities\\technicaltestdatacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{892563CD-30CE-42F3-B52A-95974BF84F7D}|TechnicalTest.Data\\TechnicalTest.Data.csproj|solutionrelative:technicaltest.data\\entities\\technicaltestdatacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B2E4F1A2-3C8D-4E5F-9A1B-6D7C8E9F0A1B}|TechnicalTest.Backend\\TechnicalTest.Backend.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.backend\\repositories\\implementations\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2E4F1A2-3C8D-4E5F-9A1B-6D7C8E9F0A1B}|TechnicalTest.Backend\\TechnicalTest.Backend.csproj|solutionrelative:technicaltest.backend\\repositories\\implementations\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.classlibrary\\technicaltest.classlibrary.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|solutionrelative:technicaltest.classlibrary\\technicaltest.classlibrary.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{B2E4F1A2-3C8D-4E5F-9A1B-6D7C8E9F0A1B}|TechnicalTest.Backend\\TechnicalTest.Backend.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.backend\\controllers\\genericcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2E4F1A2-3C8D-4E5F-9A1B-6D7C8E9F0A1B}|TechnicalTest.Backend\\TechnicalTest.Backend.csproj|solutionrelative:technicaltest.backend\\controllers\\genericcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.classlibrary\\interfaces\\ientitydelete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|solutionrelative:technicaltest.classlibrary\\interfaces\\ientitydelete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B2E4F1A2-3C8D-4E5F-9A1B-6D7C8E9F0A1B}|TechnicalTest.Backend\\TechnicalTest.Backend.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.backend\\unitsofwork\\interfaces\\igenericunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2E4F1A2-3C8D-4E5F-9A1B-6D7C8E9F0A1B}|TechnicalTest.Backend\\TechnicalTest.Backend.csproj|solutionrelative:technicaltest.backend\\unitsofwork\\interfaces\\igenericunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.classlibrary\\interfaces\\ientity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|solutionrelative:technicaltest.classlibrary\\interfaces\\ientity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B2E4F1A2-3C8D-4E5F-9A1B-6D7C8E9F0A1B}|TechnicalTest.Backend\\TechnicalTest.Backend.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.backend\\unitsofwork\\implementations\\genericunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2E4F1A2-3C8D-4E5F-9A1B-6D7C8E9F0A1B}|TechnicalTest.Backend\\TechnicalTest.Backend.csproj|solutionrelative:technicaltest.backend\\unitsofwork\\implementations\\genericunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AEF353D5-642B-49ED-9B90-63EBDF164576}|TechnicalTest.Dtos\\TechnicalTest.Dtos.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.dtos\\entities\\paginationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEF353D5-642B-49ED-9B90-63EBDF164576}|TechnicalTest.Dtos\\TechnicalTest.Dtos.csproj|solutionrelative:technicaltest.dtos\\entities\\paginationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.classlibrary\\responses\\actionresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|solutionrelative:technicaltest.classlibrary\\responses\\actionresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2E4F1A2-3C8D-4E5F-9A1B-6D7C8E9F0A1B}|TechnicalTest.Backend\\TechnicalTest.Backend.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.backend\\helpers\\queryableextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2E4F1A2-3C8D-4E5F-9A1B-6D7C8E9F0A1B}|TechnicalTest.Backend\\TechnicalTest.Backend.csproj|solutionrelative:technicaltest.backend\\helpers\\queryableextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,55 +55,93 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TechnicalTest.ClassLibrary.csproj",
-              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj",
-              "RelativeDocumentMoniker": "TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj",
-              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj",
-              "RelativeToolTip": "TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-03-20T16:11:13.266Z"
+              "Title": "GenericController.cs",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Backend\\Controllers\\GenericController.cs",
+              "RelativeDocumentMoniker": "TechnicalTest.Backend\\Controllers\\GenericController.cs",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Backend\\Controllers\\GenericController.cs",
+              "RelativeToolTip": "TechnicalTest.Backend\\Controllers\\GenericController.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAawDMAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-31T14:10:39.004Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TechnicalTestDataContext.cs",
-              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Data\\Entities\\TechnicalTestDataContext.cs",
-              "RelativeDocumentMoniker": "TechnicalTest.Data\\Entities\\TechnicalTestDataContext.cs",
-              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Data\\Entities\\TechnicalTestDataContext.cs",
-              "RelativeToolTip": "TechnicalTest.Data\\Entities\\TechnicalTestDataContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Title": "GenericRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Backend\\Repositories\\Implementations\\GenericRepository.cs",
+              "RelativeDocumentMoniker": "TechnicalTest.Backend\\Repositories\\Implementations\\GenericRepository.cs",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Backend\\Repositories\\Implementations\\GenericRepository.cs",
+              "RelativeToolTip": "TechnicalTest.Backend\\Repositories\\Implementations\\GenericRepository.cs",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAWwHEAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T20:17:28.953Z",
+              "WhenOpened": "2026-03-31T17:34:01.172Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "IEntityDelete.cs",
-              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\Interfaces\\IEntityDelete.cs",
-              "RelativeDocumentMoniker": "TechnicalTest.ClassLibrary\\Interfaces\\IEntityDelete.cs",
-              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\Interfaces\\IEntityDelete.cs",
-              "RelativeToolTip": "TechnicalTest.ClassLibrary\\Interfaces\\IEntityDelete.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAASAAAAAAAAAA==",
+              "Title": "IGenericUnitOfWork.cs",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Backend\\UnitsOfWork\\Interfaces\\IGenericUnitOfWork.cs",
+              "RelativeDocumentMoniker": "TechnicalTest.Backend\\UnitsOfWork\\Interfaces\\IGenericUnitOfWork.cs",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Backend\\UnitsOfWork\\Interfaces\\IGenericUnitOfWork.cs",
+              "RelativeToolTip": "TechnicalTest.Backend\\UnitsOfWork\\Interfaces\\IGenericUnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T20:12:47.363Z"
+              "WhenOpened": "2026-03-31T21:22:46.166Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "IEntity.cs",
-              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\Interfaces\\IEntity.cs",
-              "RelativeDocumentMoniker": "TechnicalTest.ClassLibrary\\Interfaces\\IEntity.cs",
-              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\Interfaces\\IEntity.cs",
-              "RelativeToolTip": "TechnicalTest.ClassLibrary\\Interfaces\\IEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Title": "GenericUnitOfWork.cs",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Backend\\UnitsOfWork\\Implementations\\GenericUnitOfWork.cs",
+              "RelativeDocumentMoniker": "TechnicalTest.Backend\\UnitsOfWork\\Implementations\\GenericUnitOfWork.cs",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Backend\\UnitsOfWork\\Implementations\\GenericUnitOfWork.cs",
+              "RelativeToolTip": "TechnicalTest.Backend\\UnitsOfWork\\Implementations\\GenericUnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T20:12:37.383Z"
+              "WhenOpened": "2026-03-31T21:19:36.557Z",
+              "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PaginationDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Dtos\\Entities\\PaginationDTO.cs",
+              "RelativeDocumentMoniker": "TechnicalTest.Dtos\\Entities\\PaginationDTO.cs",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Dtos\\Entities\\PaginationDTO.cs",
+              "RelativeToolTip": "TechnicalTest.Dtos\\Entities\\PaginationDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-31T17:22:53.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ActionResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\Responses\\ActionResponse.cs",
+              "RelativeDocumentMoniker": "TechnicalTest.ClassLibrary\\Responses\\ActionResponse.cs",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\Responses\\ActionResponse.cs",
+              "RelativeToolTip": "TechnicalTest.ClassLibrary\\Responses\\ActionResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-31T17:35:14.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "QueryableExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Backend\\Helpers\\QueryableExtensions.cs",
+              "RelativeDocumentMoniker": "TechnicalTest.Backend\\Helpers\\QueryableExtensions.cs",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Backend\\Helpers\\QueryableExtensions.cs",
+              "RelativeToolTip": "TechnicalTest.Backend\\Helpers\\QueryableExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-31T17:26:17.291Z",
+              "EditorCaption": ""
             }
           ]
         },
