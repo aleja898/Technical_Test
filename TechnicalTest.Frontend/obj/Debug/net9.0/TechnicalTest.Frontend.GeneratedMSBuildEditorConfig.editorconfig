@@ -30,8 +30,32 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Desarrollo4/Documentos/Technical test/TechnicalTest/TechnicalTest.Frontend/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+[C:/Users/Desarrollo4/Documentos/Technical test/TechnicalTest/TechnicalTest.Frontend/Pages/HotelsList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG90ZWxzTGlzdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Desarrollo4/Documentos/Technical test/TechnicalTest/TechnicalTest.Frontend/Pages/Hotels/HotelDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG90ZWxzXEhvdGVsRGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Desarrollo4/Documentos/Technical test/TechnicalTest/TechnicalTest.Frontend/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Desarrollo4/Documentos/Technical test/TechnicalTest/TechnicalTest.Frontend/Pages/ReservationsList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVzZXJ2YXRpb25zTGlzdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Desarrollo4/Documentos/Technical test/TechnicalTest/TechnicalTest.Frontend/Pages/Reservations/ReservationDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVzZXJ2YXRpb25zXFJlc2VydmF0aW9uRGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Desarrollo4/Documentos/Technical test/TechnicalTest/TechnicalTest.Frontend/Pages/UsersList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnNMaXN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Desarrollo4/Documentos/Technical test/TechnicalTest/TechnicalTest.Frontend/Pages/Users/UserDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnNcVXNlckRldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Desarrollo4/Documentos/Technical test/TechnicalTest/TechnicalTest.Frontend/_Imports.razor]

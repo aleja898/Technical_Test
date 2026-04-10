@@ -17,7 +17,7 @@ namespace TechnicalTest.Backend.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Nombre = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     Pais = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Latitud = table.Column<double>(type: "float", nullable: false),
                     Longitud = table.Column<double>(type: "float", nullable: false),
@@ -41,8 +41,8 @@ namespace TechnicalTest.Backend.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Apellidos = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Mail = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Direccion = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    Mail = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    Direccion = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
                     Status = table.Column<bool>(type: "bit", nullable: false),
                     Created = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Updated = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -90,11 +90,6 @@ namespace TechnicalTest.Backend.Migrations
                 name: "IX_Reservations_IdHotel",
                 table: "Reservations",
                 column: "IdHotel");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Reservations_IdHotel_FechaEntrada_FechaSalida",
-                table: "Reservations",
-                columns: new[] { "IdHotel", "FechaEntrada", "FechaSalida" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reservations_IdUsuario",

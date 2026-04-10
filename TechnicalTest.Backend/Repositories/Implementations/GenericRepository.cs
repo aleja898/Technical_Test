@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TechnicalTest.Backend.Data;
+using TechnicalTest.Data;
 using TechnicalTest.Backend.Helpers;
 using TechnicalTest.ClassLibrary.Responses;
 using TechnicalTest.Dtos.Entities;

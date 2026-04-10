@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using TechnicalTest.ClassLibrary.Entities.Users;
 using TechnicalTest.ClassLibrary.Entities.Management;
 
-namespace TechnicalTest.Backend.Data
+namespace TechnicalTest.Data
 {
     public class ApplicationDbContext : DbContext
     {
@@ -18,7 +18,6 @@ namespace TechnicalTest.Backend.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // Configuración de User
             modelBuilder.Entity<User>(entity =>
             {
                 entity.HasKey(e => e.Id);
@@ -30,7 +29,6 @@ namespace TechnicalTest.Backend.Data
                 entity.Property(e => e.Direccion).HasMaxLength(300);
             });
 
-            // Configuración de Hotel
             modelBuilder.Entity<Hotel>(entity =>
             {
                 entity.HasKey(e => e.Id);
@@ -41,22 +39,20 @@ namespace TechnicalTest.Backend.Data
                 entity.Property(e => e.NumeroHabitaciones).IsRequired();
             });
 
-            // Configuración de Reservation
             modelBuilder.Entity<Reservation>(entity =>
             {
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Id).ValueGeneratedOnAdd();
                 entity.Property(e => e.Estado).IsRequired();
 
-                // Foreign Keys sin navegación
-                entity.HasOne<User>()
-                      .WithMany()
-                      .HasForeignKey(e => e.IdUsuario)
+                entity.HasOne(r => r.Usuario)
+                      .WithMany(u => u.Reservations)
+                      .HasForeignKey(r => r.IdUsuario)
                       .OnDelete(DeleteBehavior.Restrict);
-
-                entity.HasOne<Hotel>()
-                      .WithMany()
-                      .HasForeignKey(e => e.IdHotel)
+                      
+                entity.HasOne(r => r.Hotel)
+                      .WithMany(h => h.Reservations)
+                      .HasForeignKey(r => r.IdHotel)
                       .OnDelete(DeleteBehavior.Restrict);
             });
         }

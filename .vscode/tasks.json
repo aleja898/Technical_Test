@@ -1,0 +1,67 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build-backend",
+            "command": "dotnet",
+            "args": [
+                "build",
+                "${workspaceFolder}/TechnicalTest.Backend/TechnicalTest.Backend.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build-frontend",
+            "command": "dotnet",
+            "args": [
+                "build",
+                "${workspaceFolder}/TechnicalTest.Frontend/TechnicalTest.Frontend.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build-all",
+            "dependsOrder": "parallel",
+            "dependsOn": [
+                "build-backend",
+                "build-frontend"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "publish-backend",
+            "command": "dotnet",
+            "args": [
+                "publish",
+                "${workspaceFolder}/TechnicalTest.Backend/TechnicalTest.Backend.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish-frontend",
+            "command": "dotnet",
+            "args": [
+                "publish",
+                "${workspaceFolder}/TechnicalTest.Frontend/TechnicalTest.Frontend.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish-all",
+            "dependsOrder": "parallel",
+            "dependsOn": [
+                "publish-backend",
+                "publish-frontend"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}

@@ -1,0 +1,67 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Backend",
+            "type": "coreclr",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/TechnicalTest.Backend/TechnicalTest.Backend.csproj",
+            "program": "${workspaceFolder}/TechnicalTest.Backend/bin/Debug/net9.0/TechnicalTest.Backend.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/TechnicalTest.Backend",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+                "uriFormat": "%s"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/TechnicalTest.Backend/Views"
+            }
+        },
+        {
+            "name": "Frontend",
+            "type": "coreclr",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/TechnicalTest.Frontend/TechnicalTest.Frontend.csproj",
+            "program": "${workspaceFolder}/TechnicalTest.Frontend/bin/Debug/net9.0/TechnicalTest.Frontend.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/TechnicalTest.Frontend",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+                "uriFormat": "%s"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        {
+            "name": "Full Stack",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/TechnicalTest.Backend/bin/Debug/net9.0/TechnicalTest.Backend.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/TechnicalTest.Backend",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "startDebugging",
+                "name": "Frontend"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Launch Both",
+            "configurations": ["Backend", "Frontend"]
+        }
+    ]
+}

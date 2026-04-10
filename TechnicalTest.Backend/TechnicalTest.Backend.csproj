@@ -20,4 +20,8 @@
     <ProjectReference Include="..\TechnicalTest.Dtos\TechnicalTest.Dtos.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

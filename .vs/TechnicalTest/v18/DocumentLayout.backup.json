@@ -3,32 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B2E4F1A2-3C8D-4E5F-9A1B-6D7C8E9F0A1B}|TechnicalTest.Backend\\TechnicalTest.Backend.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.backend\\repositories\\implementations\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B2E4F1A2-3C8D-4E5F-9A1B-6D7C8E9F0A1B}|TechnicalTest.Backend\\TechnicalTest.Backend.csproj|solutionrelative:technicaltest.backend\\repositories\\implementations\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.classlibrary\\entities\\users\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|solutionrelative:technicaltest.classlibrary\\entities\\users\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B2E4F1A2-3C8D-4E5F-9A1B-6D7C8E9F0A1B}|TechnicalTest.Backend\\TechnicalTest.Backend.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.backend\\controllers\\genericcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B2E4F1A2-3C8D-4E5F-9A1B-6D7C8E9F0A1B}|TechnicalTest.Backend\\TechnicalTest.Backend.csproj|solutionrelative:technicaltest.backend\\controllers\\genericcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.classlibrary\\entities\\management\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|solutionrelative:technicaltest.classlibrary\\entities\\management\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B2E4F1A2-3C8D-4E5F-9A1B-6D7C8E9F0A1B}|TechnicalTest.Backend\\TechnicalTest.Backend.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.backend\\unitsofwork\\interfaces\\igenericunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B2E4F1A2-3C8D-4E5F-9A1B-6D7C8E9F0A1B}|TechnicalTest.Backend\\TechnicalTest.Backend.csproj|solutionrelative:technicaltest.backend\\unitsofwork\\interfaces\\igenericunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.classlibrary\\entities\\management\\hotel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|solutionrelative:technicaltest.classlibrary\\entities\\management\\hotel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B2E4F1A2-3C8D-4E5F-9A1B-6D7C8E9F0A1B}|TechnicalTest.Backend\\TechnicalTest.Backend.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.backend\\unitsofwork\\implementations\\genericunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B2E4F1A2-3C8D-4E5F-9A1B-6D7C8E9F0A1B}|TechnicalTest.Backend\\TechnicalTest.Backend.csproj|solutionrelative:technicaltest.backend\\unitsofwork\\implementations\\genericunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AEF353D5-642B-49ED-9B90-63EBDF164576}|TechnicalTest.Dtos\\TechnicalTest.Dtos.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.dtos\\entities\\users\\userdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEF353D5-642B-49ED-9B90-63EBDF164576}|TechnicalTest.Dtos\\TechnicalTest.Dtos.csproj|solutionrelative:technicaltest.dtos\\entities\\users\\userdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AEF353D5-642B-49ED-9B90-63EBDF164576}|TechnicalTest.Dtos\\TechnicalTest.Dtos.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.dtos\\entities\\management\\reservationdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEF353D5-642B-49ED-9B90-63EBDF164576}|TechnicalTest.Dtos\\TechnicalTest.Dtos.csproj|solutionrelative:technicaltest.dtos\\entities\\management\\reservationdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AEF353D5-642B-49ED-9B90-63EBDF164576}|TechnicalTest.Dtos\\TechnicalTest.Dtos.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.dtos\\entities\\management\\hoteldtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEF353D5-642B-49ED-9B90-63EBDF164576}|TechnicalTest.Dtos\\TechnicalTest.Dtos.csproj|solutionrelative:technicaltest.dtos\\entities\\management\\hoteldtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBCD1A69-C354-4D40-860D-F0827D83C108}|TechnicalTest.Frontend\\TechnicalTest.Frontend.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.frontend\\pages\\userslist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DBCD1A69-C354-4D40-860D-F0827D83C108}|TechnicalTest.Frontend\\TechnicalTest.Frontend.csproj|solutionrelative:technicaltest.frontend\\pages\\userslist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBCD1A69-C354-4D40-860D-F0827D83C108}|TechnicalTest.Frontend\\TechnicalTest.Frontend.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.frontend\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DBCD1A69-C354-4D40-860D-F0827D83C108}|TechnicalTest.Frontend\\TechnicalTest.Frontend.csproj|solutionrelative:technicaltest.frontend\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBCD1A69-C354-4D40-860D-F0827D83C108}|TechnicalTest.Frontend\\TechnicalTest.Frontend.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.frontend\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DBCD1A69-C354-4D40-860D-F0827D83C108}|TechnicalTest.Frontend\\TechnicalTest.Frontend.csproj|solutionrelative:technicaltest.frontend\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBCD1A69-C354-4D40-860D-F0827D83C108}|TechnicalTest.Frontend\\TechnicalTest.Frontend.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.frontend\\technicaltest.frontend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{DBCD1A69-C354-4D40-860D-F0827D83C108}|TechnicalTest.Frontend\\TechnicalTest.Frontend.csproj|solutionrelative:technicaltest.frontend\\technicaltest.frontend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AEF353D5-642B-49ED-9B90-63EBDF164576}|TechnicalTest.Dtos\\TechnicalTest.Dtos.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.dtos\\entities\\paginationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AEF353D5-642B-49ED-9B90-63EBDF164576}|TechnicalTest.Dtos\\TechnicalTest.Dtos.csproj|solutionrelative:technicaltest.dtos\\entities\\paginationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.classlibrary\\responses\\actionresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3596C70A-DE3B-4940-A2F4-A43302F7EC81}|TechnicalTest.ClassLibrary\\TechnicalTest.ClassLibrary.csproj|solutionrelative:technicaltest.classlibrary\\responses\\actionresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B2E4F1A2-3C8D-4E5F-9A1B-6D7C8E9F0A1B}|TechnicalTest.Backend\\TechnicalTest.Backend.csproj|c:\\users\\desarrollo4\\documentos\\technical test\\technicaltest\\technicaltest.backend\\helpers\\queryableextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B2E4F1A2-3C8D-4E5F-9A1B-6D7C8E9F0A1B}|TechnicalTest.Backend\\TechnicalTest.Backend.csproj|solutionrelative:technicaltest.backend\\helpers\\queryableextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 801,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -53,30 +69,8 @@
               "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GenericController.cs",
-              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Backend\\Controllers\\GenericController.cs",
-              "RelativeDocumentMoniker": "TechnicalTest.Backend\\Controllers\\GenericController.cs",
-              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Backend\\Controllers\\GenericController.cs",
-              "RelativeToolTip": "TechnicalTest.Backend\\Controllers\\GenericController.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAawDMAAABSAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-31T14:10:39.004Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GenericRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Backend\\Repositories\\Implementations\\GenericRepository.cs",
-              "RelativeDocumentMoniker": "TechnicalTest.Backend\\Repositories\\Implementations\\GenericRepository.cs",
-              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Backend\\Repositories\\Implementations\\GenericRepository.cs",
-              "RelativeToolTip": "TechnicalTest.Backend\\Repositories\\Implementations\\GenericRepository.cs",
-              "ViewState": "AgIAAGIAAAAAAAAAAAD4vzUAAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-31T17:34:01.172Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Bookmark",
@@ -84,68 +78,142 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IGenericUnitOfWork.cs",
-              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Backend\\UnitsOfWork\\Interfaces\\IGenericUnitOfWork.cs",
-              "RelativeDocumentMoniker": "TechnicalTest.Backend\\UnitsOfWork\\Interfaces\\IGenericUnitOfWork.cs",
-              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Backend\\UnitsOfWork\\Interfaces\\IGenericUnitOfWork.cs",
-              "RelativeToolTip": "TechnicalTest.Backend\\UnitsOfWork\\Interfaces\\IGenericUnitOfWork.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAbAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Reservation.cs",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\Entities\\Management\\Reservation.cs",
+              "RelativeDocumentMoniker": "TechnicalTest.ClassLibrary\\Entities\\Management\\Reservation.cs",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\Entities\\Management\\Reservation.cs",
+              "RelativeToolTip": "TechnicalTest.ClassLibrary\\Entities\\Management\\Reservation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-31T21:22:46.166Z",
+              "WhenOpened": "2026-04-10T20:42:18.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Hotel.cs",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\Entities\\Management\\Hotel.cs",
+              "RelativeDocumentMoniker": "TechnicalTest.ClassLibrary\\Entities\\Management\\Hotel.cs",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\Entities\\Management\\Hotel.cs",
+              "RelativeToolTip": "TechnicalTest.ClassLibrary\\Entities\\Management\\Hotel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T20:42:01.129Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "GenericUnitOfWork.cs",
-              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Backend\\UnitsOfWork\\Implementations\\GenericUnitOfWork.cs",
-              "RelativeDocumentMoniker": "TechnicalTest.Backend\\UnitsOfWork\\Implementations\\GenericUnitOfWork.cs",
-              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Backend\\UnitsOfWork\\Implementations\\GenericUnitOfWork.cs",
-              "RelativeToolTip": "TechnicalTest.Backend\\UnitsOfWork\\Implementations\\GenericUnitOfWork.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAlAAAAAAAAAA==",
+              "Title": "UserDtos.cs",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Dtos\\Entities\\Users\\UserDtos.cs",
+              "RelativeDocumentMoniker": "TechnicalTest.Dtos\\Entities\\Users\\UserDtos.cs",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Dtos\\Entities\\Users\\UserDtos.cs",
+              "RelativeToolTip": "TechnicalTest.Dtos\\Entities\\Users\\UserDtos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-31T21:19:36.557Z",
+              "WhenOpened": "2026-04-10T20:41:42.493Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "PaginationDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Dtos\\Entities\\PaginationDTO.cs",
-              "RelativeDocumentMoniker": "TechnicalTest.Dtos\\Entities\\PaginationDTO.cs",
-              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Dtos\\Entities\\PaginationDTO.cs",
-              "RelativeToolTip": "TechnicalTest.Dtos\\Entities\\PaginationDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Title": "ReservationDtos.cs",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Dtos\\Entities\\Management\\ReservationDtos.cs",
+              "RelativeDocumentMoniker": "TechnicalTest.Dtos\\Entities\\Management\\ReservationDtos.cs",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Dtos\\Entities\\Management\\ReservationDtos.cs",
+              "RelativeToolTip": "TechnicalTest.Dtos\\Entities\\Management\\ReservationDtos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-31T17:22:53.879Z",
+              "WhenOpened": "2026-04-10T20:40:58.888Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ActionResponse.cs",
-              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\Responses\\ActionResponse.cs",
-              "RelativeDocumentMoniker": "TechnicalTest.ClassLibrary\\Responses\\ActionResponse.cs",
-              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\Responses\\ActionResponse.cs",
-              "RelativeToolTip": "TechnicalTest.ClassLibrary\\Responses\\ActionResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Title": "HotelDtos.cs",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Dtos\\Entities\\Management\\HotelDtos.cs",
+              "RelativeDocumentMoniker": "TechnicalTest.Dtos\\Entities\\Management\\HotelDtos.cs",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Dtos\\Entities\\Management\\HotelDtos.cs",
+              "RelativeToolTip": "TechnicalTest.Dtos\\Entities\\Management\\HotelDtos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-31T17:35:14.82Z",
+              "WhenOpened": "2026-04-10T20:40:23.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "user.cs",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\Entities\\Users\\user.cs",
+              "RelativeDocumentMoniker": "TechnicalTest.ClassLibrary\\Entities\\Users\\user.cs",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.ClassLibrary\\Entities\\Users\\user.cs",
+              "RelativeToolTip": "TechnicalTest.ClassLibrary\\Entities\\Users\\user.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T20:10:26.153Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "QueryableExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Backend\\Helpers\\QueryableExtensions.cs",
-              "RelativeDocumentMoniker": "TechnicalTest.Backend\\Helpers\\QueryableExtensions.cs",
-              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Backend\\Helpers\\QueryableExtensions.cs",
-              "RelativeToolTip": "TechnicalTest.Backend\\Helpers\\QueryableExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-31T17:26:17.291Z",
+              "Title": "UsersList.razor",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Frontend\\Pages\\UsersList.razor",
+              "RelativeDocumentMoniker": "TechnicalTest.Frontend\\Pages\\UsersList.razor",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Frontend\\Pages\\UsersList.razor",
+              "RelativeToolTip": "TechnicalTest.Frontend\\Pages\\UsersList.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-10T19:41:20.989Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Frontend\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "TechnicalTest.Frontend\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Frontend\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "TechnicalTest.Frontend\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-10T19:41:07.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Frontend\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "TechnicalTest.Frontend\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Frontend\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "TechnicalTest.Frontend\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-10T19:41:03.839Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TechnicalTest.Frontend.csproj",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Frontend\\TechnicalTest.Frontend.csproj",
+              "RelativeDocumentMoniker": "TechnicalTest.Frontend\\TechnicalTest.Frontend.csproj",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Frontend\\TechnicalTest.Frontend.csproj",
+              "RelativeToolTip": "TechnicalTest.Frontend\\TechnicalTest.Frontend.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-10T19:40:56.383Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PaginationDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Dtos\\Entities\\PaginationDTO.cs",
+              "RelativeDocumentMoniker": "TechnicalTest.Dtos\\Entities\\PaginationDTO.cs",
+              "ToolTip": "C:\\Users\\Desarrollo4\\Documentos\\Technical test\\TechnicalTest\\TechnicalTest.Dtos\\Entities\\PaginationDTO.cs",
+              "RelativeToolTip": "TechnicalTest.Dtos\\Entities\\PaginationDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T19:40:54.507Z"
             }
           ]
         },
@@ -160,10 +228,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Bookmark",

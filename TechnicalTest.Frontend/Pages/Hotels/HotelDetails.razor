@@ -1,0 +1,208 @@
+@page "/hotels/hoteldetails/{Id}"
+@inject HotelService HotelService
+@inject NavigationManager NavigationManager
+
+<PageTitle>Hotel Details</PageTitle>
+
+<div class="container mt-4">
+    @if (hotel != null)
+    {
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3 class="mb-0">Detalles del Hotel</h3>
+                <div>
+                    <button class="btn btn-warning me-2" @onclick="EditHotel">
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button class="btn btn-secondary" @onclick="GoBack">
+                        <i class="fas fa-arrow-left"></i> Volver
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 class="text-primary">Información del Hotel</h5>
+                        <table class="table table-borderless">
+                            <tr>
+                                <td><strong>ID:</strong></td>
+                                <td>@hotel.Id</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nombre:</strong></td>
+                                <td>@hotel.Nombre</td>
+                            </tr>
+                            <tr>
+                                <td><strong>País:</strong></td>
+                                <td>@hotel.Pais</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Descripción:</strong></td>
+                                <td>@hotel.Descripcion</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Número de Habitaciones:</strong></td>
+                                <td>@hotel.NumeroHabitaciones</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Estado:</strong></td>
+                                <td>
+                                    <span class="badge @(hotel.Activo ? "bg-success" : "bg-danger")">
+                                        @(hotel.Activo ? "Activo" : "Inactivo")
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Coordenadas:</strong></td>
+                                <td>Lat: @hotel.Latitud, Lng: @hotel.Longitud</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="text-primary">Reservas del Hotel</h5>
+                        @if (hotelReservations != null && hotelReservations.Any())
+                        {
+                            <div class="table-responsive">
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Usuario</th>
+                                            <th>Habitación</th>
+                                            <th>Entrada</th>
+                                            <th>Salida</th>
+                                            <th>Estado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var reservation in hotelReservations)
+                                        {
+                                            <tr>
+                                                <td>@reservation.Id</td>
+                                                <td>@reservation.NombreUsuario</td>
+                                                <td>@reservation.IdHabitacion</td>
+                                                <td>@reservation.FechaEntrada.ToString("dd/MM/yyyy")</td>
+                                                <td>@(reservation.FechaSalida?.ToString("dd/MM/yyyy") ?? "Sin definir")</td>
+                                                <td>
+                                                    <span class="badge @(reservation.Estado == 1 ? "bg-success" : "bg-danger")">
+                                                        @(reservation.Estado == 1 ? "Reservado" : "Cancelado")
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="mt-3">
+                                <h6>Estadísticas de Reservas</h6>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card bg-light">
+                                            <div class="card-body text-center">
+                                                <h5 class="text-primary">@totalReservations</h5>
+                                                <small>Total Reservas</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card bg-success text-white">
+                                            <div class="card-body text-center">
+                                                <h5>@activeReservations</h5>
+                                                <small>Reservas Activas</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card bg-danger text-white">
+                                            <div class="card-body text-center">
+                                                <h5>@cancelledReservations</h5>
+                                                <small>Reservas Canceladas</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <p class="text-muted">Este hotel no tiene reservas registradas.</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else if (loading)
+    {
+        <div class="text-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Cargando...</span>
+            </div>
+            <p class="mt-2">Cargando detalles del hotel...</p>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning">
+            <h4>Hotel no encontrado</h4>
+            <p>El hotel que buscas no existe o ha sido eliminado.</p>
+            <button class="btn btn-primary" @onclick="GoBack">Volver a la lista</button>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+
+    private HotelDto hotel = null;
+    private List<ReservationDto> hotelReservations = new List<ReservationDto>();
+    private bool loading = true;
+    private int totalReservations = 0;
+    private int activeReservations = 0;
+    private int cancelledReservations = 0;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await LoadHotelDetails();
+    }
+
+    private async Task LoadHotelDetails()
+    {
+        loading = true;
+        
+        try
+        {
+            if (int.TryParse(Id, out int hotelId))
+            {
+                hotel = await HotelService.GetHotelByIdAsync(hotelId);
+                if (hotel != null)
+                {
+                    hotelReservations = (await HotelService.GetHotelReservationsAsync(hotelId)).ToList();
+                    
+                    totalReservations = hotelReservations.Count;
+                    activeReservations = hotelReservations.Count(r => r.Estado == 1);
+                    cancelledReservations = hotelReservations.Count(r => r.Estado == 2);
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading hotel details: {ex.Message}");
+        }
+        finally
+        {
+            loading = false;
+        }
+    }
+
+    private void EditHotel()
+    {
+        NavigationManager.NavigateTo($"/hotels?editId={hotel.Id}");
+    }
+
+    private void GoBack()
+    {
+        NavigationManager.NavigateTo("/hotels");
+    }
+}

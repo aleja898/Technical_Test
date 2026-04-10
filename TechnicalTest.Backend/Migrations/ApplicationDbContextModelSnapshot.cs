@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TechnicalTest.Backend.Data;
+using TechnicalTest.Data;
 
 #nullable disable
 
@@ -49,8 +49,8 @@ namespace TechnicalTest.Backend.Migrations
 
                     b.Property<string>("Nombre")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
                     b.Property<int>("NumeroHabitaciones")
                         .HasColumnType("int");
@@ -91,7 +91,7 @@ namespace TechnicalTest.Backend.Migrations
                     b.Property<DateTime>("FechaReserva")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("FechaSalida")
+                    b.Property<DateTime?>("FechaSalida")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("IdHabitacion")
@@ -115,8 +115,6 @@ namespace TechnicalTest.Backend.Migrations
 
                     b.HasIndex("IdUsuario");
 
-                    b.HasIndex("IdHotel", "FechaEntrada", "FechaSalida");
-
                     b.ToTable("Reservations");
                 });
 
@@ -138,13 +136,13 @@ namespace TechnicalTest.Backend.Migrations
 
                     b.Property<string>("Direccion")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
 
                     b.Property<string>("Mail")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -167,17 +165,31 @@ namespace TechnicalTest.Backend.Migrations
 
             modelBuilder.Entity("TechnicalTest.ClassLibrary.Entities.Management.Reservation", b =>
                 {
-                    b.HasOne("TechnicalTest.ClassLibrary.Entities.Management.Hotel", null)
-                        .WithMany()
+                    b.HasOne("TechnicalTest.ClassLibrary.Entities.Management.Hotel", "Hotel")
+                        .WithMany("Reservations")
                         .HasForeignKey("IdHotel")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TechnicalTest.ClassLibrary.Entities.Users.User", null)
-                        .WithMany()
+                    b.HasOne("TechnicalTest.ClassLibrary.Entities.Users.User", "Usuario")
+                        .WithMany("Reservations")
                         .HasForeignKey("IdUsuario")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Hotel");
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("TechnicalTest.ClassLibrary.Entities.Management.Hotel", b =>
+                {
+                    b.Navigation("Reservations");
+                });
+
+            modelBuilder.Entity("TechnicalTest.ClassLibrary.Entities.Users.User", b =>
+                {
+                    b.Navigation("Reservations");
                 });
 #pragma warning restore 612, 618
         }

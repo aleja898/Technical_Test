@@ -11,4 +11,9 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.14" PrivateAssets="all" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TechnicalTest.ClassLibrary\TechnicalTest.ClassLibrary.csproj" />
+    <ProjectReference Include="..\TechnicalTest.Dtos\TechnicalTest.Dtos.csproj" />
+  </ItemGroup>
+
 </Project>

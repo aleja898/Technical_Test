@@ -1,0 +1,283 @@
+@page "/hotels"
+@page "/hotels/list"
+@inject HotelService HotelService
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+<PageTitle>Hoteles</PageTitle>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>🏨 Gestión de Hoteles</h2>
+        <button class="btn btn-success" @onclick="ShowCreateForm">
+            <i class="bi bi-plus-circle"></i> Nuevo Hotel
+        </button>
+    </div>
+
+    @if (!string.IsNullOrEmpty(_errorMessage))
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>❌ Error:</strong> @_errorMessage
+            <button type="button" class="btn-close" @onclick="() => _errorMessage = null" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (_loading)
+    {
+        <div class="text-center">
+            <div class="spinner-border text-success" role="status">
+                <span class="visually-hidden">Cargando...</span>
+            </div>
+        </div>
+    }
+    else if (_hotels.Count == 0)
+    {
+        <div class="alert alert-info text-center">
+            No hay hoteles registrados.
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var hotel in _hotels)
+            {
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 @(hotel.Activo ? "" : "border-danger")">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                @hotel.Nombre
+                                @if (!hotel.Activo)
+                                {
+                                    <span class="badge bg-danger ms-2">Inactivo</span>
+                                }
+                            </h5>
+                            <p class="card-text">
+                                <strong>País:</strong> @hotel.Pais<br />
+                                <strong>Habitaciones:</strong> @hotel.NumeroHabitaciones<br />
+                                <strong>Estado:</strong> @(hotel.Activo ? "Activo" : "Inactivo")
+                            </p>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-sm btn-info flex-fill" @onclick="() => ViewHotelDetails(hotel.Id)">
+                                    Detalles
+                                </button>
+                                <button class="btn btn-sm btn-warning flex-fill" @onclick="() => EditHotel(hotel)">
+                                    Editar
+                                </button>
+                                <button class="btn btn-sm btn-danger flex-fill" @onclick="() => DeleteHotel(hotel.Id)">
+                                    Eliminar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+<div class="modal fade @(showModal ? "show d-block" : "")" tabindex="-1" style="@(showModal ? "background-color: rgba(0,0,0,0.5);" : "")">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">@(_editingHotel != null ? "Editar Hotel" : "Nuevo Hotel")</h5>
+                <button type="button" class="btn-close" @onclick="HideModal"></button>
+            </div>
+            <div class="modal-body">
+                <EditForm Model="@_formData" OnValidSubmit="SaveHotel">
+                    <DataAnnotationsValidator />
+                    <ValidationSummary />
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Nombre:</label>
+                            <InputText class="form-control" @bind-Value="_formData.Nombre" />
+                            <ValidationMessage For="@(() => _formData.Nombre)" />
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">País:</label>
+                            <InputSelect class="form-control" @bind-Value="_formData.Pais">
+                                <option value="">Seleccione un país</option>
+                                @foreach (var country in _countries)
+                                {
+                                    <option value="@country">@country</option>
+                                }
+                            </InputSelect>
+                            <ValidationMessage For="@(() => _formData.Pais)" />
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Latitud:</label>
+                            <InputNumber class="form-control" @bind-Value="_formData.Latitud" />
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Longitud:</label>
+                            <InputNumber class="form-control" @bind-Value="_formData.Longitud" />
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Número de Habitaciones:</label>
+                            <InputNumber class="form-control" @bind-Value="_formData.NumeroHabitaciones" />
+                            <ValidationMessage For="@(() => _formData.NumeroHabitaciones)" />
+                        </div>
+                        
+                        @if (_editingHotel != null)
+                        {
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Estado:</label>
+                                <InputCheckbox class="form-check-input mt-2" @bind-Value="_editingHotel.Activo" />
+                                <span class="ms-2">Activo</span>
+                            </div>
+                        }
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Descripción:</label>
+                        <InputTextArea class="form-control" @bind-Value="_formData.Descripcion" rows="3" />
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" @onclick="HideModal">Cancelar</button>
+                        <button type="submit" class="btn btn-success">Guardar</button>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    [SupplyParameterFromQuery]
+    public int? editId { get; set; }
+
+    [Inject] private CountryService CountryService { get; set; } = default!;
+    
+    private List<HotelDto> _hotels = new();
+    private List<string> _countries = new();
+    private bool _loading = true;
+    private bool showModal = false;
+    private HotelDto? _editingHotel;
+    private CreateHotelRequest _formData = new();
+    private string? _errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadHotels();
+        await LoadCountries();
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (editId.HasValue)
+        {
+            await LoadHotels();
+            var hotelToEdit = _hotels.FirstOrDefault(h => h.Id == editId.Value);
+            if (hotelToEdit != null)
+            {
+                EditHotel(hotelToEdit);
+            }
+        }
+    }
+
+    private async Task LoadHotels()
+    {
+        _loading = true;
+        _hotels = await HotelService.GetHotelsAsync();
+        _loading = false;
+    }
+
+    private async Task LoadCountries()
+    {
+        _countries = await CountryService.GetCountriesAsync();
+    }
+
+    private void ShowCreateForm()
+    {
+        _editingHotel = null;
+        _formData = new CreateHotelRequest();
+        showModal = true;
+    }
+
+    private void EditHotel(HotelDto hotel)
+    {
+        _editingHotel = hotel;
+        _formData = new CreateHotelRequest
+        {
+            Nombre = hotel.Nombre,
+            Pais = hotel.Pais,
+            Latitud = hotel.Latitud,
+            Longitud = hotel.Longitud,
+            Descripcion = hotel.Descripcion,
+            NumeroHabitaciones = hotel.NumeroHabitaciones
+        };
+        showModal = true;
+    }
+
+    private async Task SaveHotel()
+    {
+        bool success;
+        if (_editingHotel != null)
+        {
+            var updateRequest = new UpdateHotelRequest
+            {
+                Nombre = _formData.Nombre,
+                Pais = _formData.Pais,
+                Latitud = _formData.Latitud,
+                Longitud = _formData.Longitud,
+                Descripcion = _formData.Descripcion,
+                Activo = _editingHotel.Activo,
+                NumeroHabitaciones = _formData.NumeroHabitaciones
+            };
+            success = await HotelService.UpdateHotelAsync(_editingHotel.Id, updateRequest);
+        }
+        else
+        {
+            success = await HotelService.CreateHotelAsync(_formData);
+        }
+
+        if (success)
+        {
+            _errorMessage = null; 
+            HideModal();
+            await LoadHotels();
+        }
+    }
+
+    private async Task DeleteHotel(int id)
+    {
+        bool confirmed = await JSRuntime.InvokeAsync<bool>("confirm", "¿Está seguro de eliminar este hotel?");
+        if (confirmed)
+        {
+            var (success, errorMessage) = await HotelService.DeleteHotelAsync(id);
+            
+            if (success)
+            {
+                _errorMessage = null;
+                await LoadHotels();
+            }
+            else
+            {
+                _errorMessage = errorMessage;
+                StateHasChanged();
+            }
+        }
+    }
+
+    private void ViewHotelDetails(int id)
+    {
+        NavigationManager.NavigateTo($"/hotels/hoteldetails/{id}");
+    }
+
+    private void HideModal()
+    {
+        showModal = false;
+        _editingHotel = null;
+        _formData = new CreateHotelRequest();
+    }
+}

@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TechnicalTest.Backend.Data;
+using TechnicalTest.Data;
 using TechnicalTest.ClassLibrary.Entities.Users;
 using TechnicalTest.ClassLibrary.Entities.Management;
 using TechnicalTest.Dtos.Entities.Users;
+using TechnicalTest.Dtos.Entities.Management;
 
 namespace TechnicalTest.Backend.Controllers
 {
@@ -20,7 +21,6 @@ namespace TechnicalTest.Backend.Controllers
             _logger = logger;
         }
 
-        // GET: api/users
         [HttpGet]
         public async Task<ActionResult<UserDto>> GetUsers()
         {
@@ -45,7 +45,6 @@ namespace TechnicalTest.Backend.Controllers
             }
         }
 
-        // GET: api/users/5
         [HttpGet("{id}")]
         public async Task<ActionResult<UserDto>> GetUser(int id)
         {
@@ -73,13 +72,54 @@ namespace TechnicalTest.Backend.Controllers
             }
         }
 
-        // POST: api/users
+        [HttpGet("{id}/reservations")]
+        public async Task<ActionResult<IEnumerable<ReservationDto>>> GetUserReservations(int id)
+        {
+            try
+            {
+                var user = await _context.Users.FindAsync(id);
+                if (user == null)
+                {
+                    _logger.LogWarning("Usuario con ID {UserId} no encontrado", id);
+                    return NotFound($"Usuario con ID {id} no encontrado");
+                }
+
+                var reservations = await _context.Reservations
+                    .Where(r => r.IdUsuario == id)
+                    .Include(r => r.Usuario)
+                    .Include(r => r.Hotel)
+                    .OrderByDescending(r => r.FechaReserva)
+                    .ToListAsync();
+
+                var reservationDtos = reservations.Select(r => new ReservationDto
+                {
+                    Id = r.Id,
+                    IdUsuario = r.IdUsuario,
+                    IdHotel = r.IdHotel,
+                    IdHabitacion = r.IdHabitacion,
+                    FechaEntrada = r.FechaEntrada,
+                    FechaSalida = r.FechaSalida,
+                    FechaReserva = r.FechaReserva,
+                    Estado = (int)r.Estado,
+                    NombreHotel = r.Hotel.Nombre,
+                    MailUsuario = r.Usuario.Mail,
+                    NombreUsuario = r.Usuario.Nombre + " " + r.Usuario.Apellidos
+                });
+
+                return Ok(reservationDtos);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error al obtener reservas del usuario con ID {UserId}", id);
+                return StatusCode(500, "Error interno del servidor");
+            }
+        }
+
         [HttpPost]
         public async Task<ActionResult<UserDto>> CreateUser([FromBody] CreateUserRequest request)
         {
             try
             {
-                // Validar que el email no exista
                 var existingUser = await _context.Users
                     .FirstOrDefaultAsync(u => u.Mail == request.Mail);
                 
@@ -117,7 +157,6 @@ namespace TechnicalTest.Backend.Controllers
             }
         }
 
-        // PUT: api/users/5
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(int id, [FromBody] UpdateUserRequest request)
         {
@@ -130,7 +169,6 @@ namespace TechnicalTest.Backend.Controllers
                     return NotFound($"Usuario con ID {id} no encontrado");
                 }
 
-                // Si cambia el email, validar que no exista
                 if (request.Mail != user.Mail)
                 {
                     var existingUser = await _context.Users
@@ -160,7 +198,6 @@ namespace TechnicalTest.Backend.Controllers
             }
         }
 
-        // DELETE: api/users/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
@@ -173,7 +210,6 @@ namespace TechnicalTest.Backend.Controllers
                     return NotFound($"Usuario con ID {id} no encontrado");
                 }
 
-                // Verificar si tiene reservas activas
                 var hasReservations = await _context.Reservations
                     .AnyAsync(r => r.IdUsuario == id && r.Estado == ReservationStatus.Reservado);
                 
@@ -183,7 +219,7 @@ namespace TechnicalTest.Backend.Controllers
                     return BadRequest("No se puede eliminar el usuario porque tiene reservas activas");
                 }
 
-                _context.Users.Remove(user);
+                _context.Users.Remove(user!);
                 await _context.SaveChangesAsync();
 
                 _logger.LogInformation("Usuario {UserId} eliminado exitosamente", id);

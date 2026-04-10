@@ -1,0 +1,163 @@
+@page "/reservations/reservationdetails/{Id}"
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+@inject ReservationService ReservationService
+
+<PageTitle>Detalles de Reservación</PageTitle>
+
+<style>
+.time-picker-container input[type="time"] {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 2px solid #e9ecef;
+    border-radius: 0.375rem;
+}
+
+@@media print {
+    .no-print { display: none !important; }
+    .card-header { background: #f8f9fa !important; -webkit-print-color-adjust: exact; }
+}
+</style>
+
+@if (reservation != null)
+{
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h4 class="mb-0">
+                    <i class="fas fa-calendar-check"></i> Detalles de Reservación #@reservation.Id
+                </h4>
+                <div class="no-print">
+                    <button class="btn btn-warning me-2" @onclick="EditReservation">
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button class="btn btn-secondary" @onclick="GoBack">
+                        <i class="fas fa-arrow-left"></i> Volver
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 class="text-primary mb-3"><i class="fas fa-info-circle"></i> Información</h5>
+                        <table class="table table-borderless table-sm">
+                            <tbody>
+                                <tr><td><strong>ID:</strong></td><td>#@reservation.Id</td></tr>
+                                <tr><td><strong>Reserva:</strong></td><td>@reservation.FechaReserva.ToString("dd/MM/yyyy HH:mm")</td></tr>
+                                <tr><td><strong>Entrada:</strong></td><td>@reservation.FechaEntrada.ToString("dd/MM/yyyy HH:mm")</td></tr>
+                                <tr><td><strong>Salida:</strong></td><td id="fechaSalidaDisplay">@(reservation.FechaSalida?.ToString("dd/MM/yyyy HH:mm") ?? "Sin definir")</td></tr>
+                                <tr><td><strong>Duración:</strong></td><td>@(reservation.FechaSalida.HasValue ? CalculateDuration(reservation.FechaEntrada, reservation.FechaSalida.Value) : "Sin definir")</td></tr>
+                                <tr><td><strong>Estado:</strong></td><td><span class="badge @(reservation.Estado == 1 ? "bg-success" : "bg-danger")">@(reservation.Estado == 1 ? "Reservado" : "Cancelado")</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="text-primary mb-3"><i class="fas fa-hotel"></i> Hotel y Usuario</h5>
+                        <table class="table table-borderless table-sm">
+                            <tbody>
+                                <tr><td><strong>Hotel:</strong></td><td>@reservation.NombreHotel</td></tr>
+                                <tr><td><strong>Habitación:</strong></td><td>@reservation.IdHabitacion</td></tr>
+                                <tr><td><strong>Usuario:</strong></td><td>@reservation.NombreUsuario</td></tr>
+                                <tr><td><strong>Email:</strong></td><td>@reservation.MailUsuario</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card bg-light mt-4 no-print">
+                    <div class="card-header"><h6><i class="fas fa-clock"></i> Editar Salida</h6></div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="form-label">Fecha de Salida:</label>
+                                <InputDate class="form-control" @bind-Value="newFechaSalidaDate" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Hora de Salida:</label>
+                                <div class="time-picker-container">
+                                    <input type="time" class="form-control" value="@newHoraSalidaString" @onchange="OnNewHoraSalidaChanged" />
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-success mt-3 w-100" @onclick="UpdateFechaSalida">
+                            <i class="fas fa-save"></i> Actualizar Fecha y Hora de Salida
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row mt-4 no-print">
+                    <div class="col-12 text-center">
+                        <button class="btn btn-secondary btn-lg" @onclick="PrintReservation">
+                            <i class="fas fa-print"></i> Imprimir Reservación
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else if (loading)
+{
+    <div class="text-center mt-5"><div class="spinner-border"></div><p>Cargando...</p></div>
+}
+
+@code {
+    [Parameter] public string Id { get; set; }
+    private ReservationDto? reservation;
+    private bool loading = true;
+    private DateOnly? newFechaSalidaDate;
+    private string newHoraSalidaString = "";
+
+    protected override async Task OnInitializedAsync() => await LoadReservationDetails();
+
+    private async Task LoadReservationDetails()
+    {
+        if (int.TryParse(Id, out int rid))
+        {
+            reservation = await ReservationService.GetReservationByIdAsync(rid);
+            if (reservation?.FechaSalida != null)
+            {
+                newFechaSalidaDate = DateOnly.FromDateTime(reservation.FechaSalida.Value);
+                newHoraSalidaString = reservation.FechaSalida.Value.ToString("HH:mm");
+            }
+        }
+        loading = false;
+    }
+
+    private void OnNewHoraSalidaChanged(ChangeEventArgs e)
+    {
+        newHoraSalidaString = e.Value?.ToString() ?? "";
+        StateHasChanged();
+    }
+
+    private async Task UpdateFechaSalida()
+    {
+        if (newFechaSalidaDate.HasValue && !string.IsNullOrWhiteSpace(newHoraSalidaString) && reservation != null)
+        {
+            if (TimeSpan.TryParse(newHoraSalidaString, out var time))
+            {
+                var combined = newFechaSalidaDate.Value.ToDateTime(new TimeOnly(time.Hours, time.Minutes));
+                var success = await ReservationService.UpdateCheckoutDateAsync(reservation.Id, combined);
+                if (success)
+                {
+                    reservation.FechaSalida = combined;
+                    await JSRuntime.InvokeVoidAsync("alert", "Fecha y hora de salida actualizadas");
+                }
+            }
+            else await JSRuntime.InvokeVoidAsync("alert", "Formato de hora inválido");
+        }
+    }
+
+    private string CalculateDuration(DateTime entrada, DateTime salida)
+    {
+        var duration = salida - entrada;
+        int days = duration.Days;
+        int hours = duration.Hours;
+        if (days > 0) return $"{days} día(s) y {hours} hora(s)";
+        return $"{hours} hora(s)";
+    }
+
+    private void PrintReservation() => JSRuntime.InvokeVoidAsync("window.print");
+    private void EditReservation() => NavigationManager.NavigateTo($"/reservations?editId={reservation.Id}");
+    private void GoBack() => NavigationManager.NavigateTo("/reservations");
+}

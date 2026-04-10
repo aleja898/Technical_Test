@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TechnicalTest.Backend.Data;
+using TechnicalTest.Data;
 using TechnicalTest.ClassLibrary.Entities.Management;
 using TechnicalTest.Dtos.Entities.Management;
 
@@ -19,13 +19,52 @@ namespace TechnicalTest.Backend.Controllers
             _logger = logger;
         }
 
-        // GET: api/hotels
+        [HttpGet("countries")]
+        public ActionResult<IEnumerable<string>> GetCountries()
+        {
+            try
+            {
+                var countries = new List<string>
+                {
+                    "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia",
+                    "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladés", "Barbados", "Baréin", "Bélgica", "Belice", "Benín",
+                    "Bielorrusia", "Birmania", "Bolivia", "Bosnia y Herzegovina", "Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi",
+                    "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre",
+                    "Ciudad del Vaticano", "Colombia", "Comoras", "Congo", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba",
+                    "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España",
+                    "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi", "Francia", "Gabón", "Gambia", "Georgia",
+                    "Ghana", "Granada", "Grecia", "Guatemala", "Guinea", "Guinea Ecuatorial", "Guinea-Bisáu", "Guyana", "Haití", "Honduras",
+                    "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas Marshall", "Islas Salomón", "Israel",
+                    "Italia", "Jamaica", "Japón", "Jordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos",
+                    "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia del Norte", "Madagascar",
+                    "Malasia", "Malaui", "Maldivas", "Mali", "Malta", "Marruecos", "Mauricio", "Mauritania", "México", "Micronesia",
+                    "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger",
+                    "Nigeria", "Noruega", "Nueva Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Panamá", "Papúa Nueva Guinea", "Paraguay",
+                    "Perú", "Polonia", "Portugal", "Reino Unido", "República Centroafricana", "República Checa", "República del Congo", "República Democrática del Congo", "República Dominicana", "República Eslovaca",
+                    "República Sudafricana", "Ruanda", "Rumanía", "Rusia", "Samoa", "San Cristóbal y Nieves", "San Marino", "Santa Lucía", "Santo Tomé y Príncipe", "Senegal",
+                    "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia", "Sudán", "Sudán del Sur",
+                    "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "Tayikistán", "Timor Oriental", "Togo", "Tonga", "Trinidad y Tobago",
+                    "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela",
+                    "Vietnam", "Yemen", "Yibuti", "Zambia", "Zimbabue"
+                };
+
+                countries.Sort();
+                _logger.LogInformation("Se consultaron {Count} países", countries.Count);
+                return Ok(countries);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error al obtener países");
+                return StatusCode(500, "Error interno del servidor");
+            }
+        }
+
         [HttpGet]
         public async Task<ActionResult<HotelDto>> GetHotels()
         {
             try
             {
-                var hotels = await _context.Hotels.Where(h => h.Activo).ToListAsync();
+                var hotels = await _context.Hotels.ToListAsync(); 
                 var hotelDtos = hotels.Select(h => new HotelDto
                 {
                     Id = h.Id,
@@ -47,19 +86,18 @@ namespace TechnicalTest.Backend.Controllers
             }
         }
 
-        // GET: api/hotels/5
         [HttpGet("{id}")]
         public async Task<ActionResult<HotelDto>> GetHotel(int id)
         {
             try
             {
                 var hotel = await _context.Hotels
-                    .FirstOrDefaultAsync(h => h.Id == id && h.Activo);
+                    .FirstOrDefaultAsync(h => h.Id == id); 
                 
                 if (hotel == null)
                 {
-                    _logger.LogWarning("Hotel con ID {HotelId} no encontrado o inactivo", id);
-                    return NotFound($"Hotel con ID {id} no encontrado o inactivo");
+                    _logger.LogWarning("Hotel con ID {HotelId} no encontrado", id);
+                    return NotFound($"Hotel con ID {id} no encontrado");
                 }
                 return Ok(new HotelDto
                 {
@@ -80,7 +118,49 @@ namespace TechnicalTest.Backend.Controllers
             }
         }
 
-        // POST: api/hotels
+        [HttpGet("{id}/reservations")]
+        public async Task<ActionResult<IEnumerable<ReservationDto>>> GetHotelReservations(int id)
+        {
+            try
+            {
+                var hotel = await _context.Hotels.FindAsync(id);
+                if (hotel == null)
+                {
+                    _logger.LogWarning("Hotel con ID {HotelId} no encontrado", id);
+                    return NotFound($"Hotel con ID {id} no encontrado");
+                }
+
+                var reservations = await _context.Reservations
+                    .Where(r => r.IdHotel == id)
+                    .Include(r => r.Usuario)
+                    .Include(r => r.Hotel)
+                    .OrderByDescending(r => r.FechaReserva)
+                    .ToListAsync();
+
+                var reservationDtos = reservations.Select(r => new ReservationDto
+                {
+                    Id = r.Id,
+                    IdUsuario = r.IdUsuario,
+                    IdHotel = r.IdHotel,
+                    IdHabitacion = r.IdHabitacion,
+                    FechaEntrada = r.FechaEntrada,
+                    FechaSalida = r.FechaSalida,
+                    FechaReserva = r.FechaReserva,
+                    Estado = (int)r.Estado,
+                    NombreHotel = r.Hotel.Nombre,
+                    MailUsuario = r.Usuario.Mail,
+                    NombreUsuario = r.Usuario.Nombre + " " + r.Usuario.Apellidos
+                });
+
+                return Ok(reservationDtos);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error al obtener reservas del hotel con ID {HotelId}", id);
+                return StatusCode(500, "Error interno del servidor");
+            }
+        }
+
         [HttpPost]
         public async Task<ActionResult<HotelDto>> CreateHotel([FromBody] CreateHotelRequest request)
         {
@@ -120,7 +200,6 @@ namespace TechnicalTest.Backend.Controllers
             }
         }
 
-        // PUT: api/hotels/5
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateHotel(int id, [FromBody] UpdateHotelRequest request)
         {
@@ -153,7 +232,6 @@ namespace TechnicalTest.Backend.Controllers
             }
         }
 
-        // DELETE: api/hotels/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteHotel(int id)
         {
@@ -166,17 +244,23 @@ namespace TechnicalTest.Backend.Controllers
                     return NotFound($"Hotel con ID {id} no encontrado");
                 }
 
-                // Verificar si tiene reservas activas
-                var hasReservations = await _context.Reservations
-                    .AnyAsync(r => r.IdHotel == id && r.Estado == ReservationStatus.Reservado);
+                var activeReservations = await _context.Reservations
+                    .Where(r => r.IdHotel == id && r.Estado == ReservationStatus.Reservado)
+                    .ToListAsync();
                 
-                if (hasReservations)
+                if (activeReservations.Any())
                 {
-                    _logger.LogWarning("No se puede eliminar hotel {HotelId} porque tiene reservas activas", id);
-                    return BadRequest("No se puede eliminar el hotel porque tiene reservas activas");
+                    var reservationCount = activeReservations.Count;
+                    var hotelName = hotel.Nombre;
+                    
+                    _logger.LogWarning("No se puede eliminar hotel {HotelId} '{HotelName}' porque tiene {Count} reservas activas", 
+                        id, hotelName, reservationCount);
+                    
+                    return BadRequest($"No se puede eliminar el hotel '{hotelName}' porque tiene {reservationCount} reserva(s) activa(s). " +
+                        $"Por favor, cancele o elimine las reservas primero antes de eliminar el hotel.");
                 }
 
-                _context.Hotels.Remove(hotel);
+                _context.Hotels.Remove(hotel!);
                 await _context.SaveChangesAsync();
 
                 _logger.LogInformation("Hotel {HotelId} eliminado exitosamente", id);
@@ -189,7 +273,6 @@ namespace TechnicalTest.Backend.Controllers
             }
         }
 
-        // GET: api/hotels/5/availability?startDate=2024-01-01&endDate=2024-01-31
         [HttpGet("{id}/availability")]
         public async Task<ActionResult<HotelAvailabilityDto>> GetHotelAvailability(int id, DateTime startDate, DateTime endDate)
         {
@@ -204,7 +287,6 @@ namespace TechnicalTest.Backend.Controllers
                     return NotFound($"Hotel con ID {id} no encontrado o inactivo");
                 }
 
-                // Contar reservas activas en el rango de fechas
                 var activeReservations = await _context.Reservations
                     .Where(r => r.IdHotel == id 
                                && r.Estado == ReservationStatus.Reservado

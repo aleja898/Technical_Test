@@ -97,7 +97,6 @@ namespace TechnicalTest.Backend.Controllers
         [HttpPut("{id}")]
         public virtual async Task<IActionResult> PutAsync(int id, [FromBody] T model)
         {
-            // Si el modelo tiene una propiedad "Id", verifica consistencia con el id de la URL
             var idProp = typeof(T).GetProperty("Id");
             if (idProp != null)
             {

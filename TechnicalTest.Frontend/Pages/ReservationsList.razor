@@ -1,0 +1,355 @@
+@page "/reservations"
+@page "/reservations/list"
+@inject ReservationService ReservationService
+@inject UserService UserService
+@inject HotelService HotelService
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+<PageTitle>Reservaciones</PageTitle>
+
+<style>
+    .time-picker-container input[type="time"] {
+        font-size: 1.1rem;
+        padding: 0.5rem;
+        border: 2px solid #e9ecef;
+        border-radius: 0.375rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+        .time-picker-container input[type="time"]:focus {
+            border-color: #86b7fe;
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+            outline: 0;
+        }
+</style>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2><i class="fas fa-calendar-alt"></i> Gestión de Reservas</h2>
+        <button class="btn btn-info" @onclick="ShowCreateForm">
+            <i class="fas fa-plus-circle"></i> Nueva Reserva
+        </button>
+    </div>
+
+    @if (_loading)
+    {
+        <div class="text-center mt-5">
+            <div class="spinner-border text-info" role="status">
+                <span class="visually-hidden">Cargando...</span>
+            </div>
+            <p class="mt-2">Cargando reservaciones...</p>
+        </div>
+    }
+    else if (_reservations.Count == 0)
+    {
+        <div class="alert alert-info text-center">
+            No hay reservas registradas.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Usuario</th>
+                        <th>Hotel</th>
+                        <th>Habitación</th>
+                        <th>Entrada</th>
+                        <th>Salida</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var reservation in _reservations)
+                    {
+                        <tr>
+                            <td>#@reservation.Id</td>
+                            <td>@(reservation.NombreUsuario ?? "Usuario ID: " + reservation.IdUsuario)</td>
+                            <td>@(reservation.NombreHotel ?? "Hotel ID: " + reservation.IdHotel)</td>
+                            <td>@reservation.IdHabitacion</td>
+                            <td>@reservation.FechaEntrada.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td>@(reservation.FechaSalida.HasValue? reservation.FechaSalida.Value.ToString("dd/MM/yyyy HH:mm") : "Sin definir")</td>
+                            <td>
+                                @if (reservation.Estado == 1)
+                                {
+                                    <span class="badge bg-success">Reservado</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">Cancelado</span>
+                                }
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-sm btn-info" @onclick="() => ViewReservationDetails(reservation.Id)">
+                                        <i class="fas fa-eye"></i> Detalles
+                                    </button>
+                                    @if (reservation.Estado == 1)
+                                    {
+                                        <button class="btn btn-sm btn-warning" @onclick="() => CancelReservation(reservation.Id)">
+                                            <i class="fas fa-ban"></i> Cancelar
+                                        </button>
+                                    }
+                                    <button class="btn btn-sm btn-danger" @onclick="() => DeleteReservation(reservation.Id)">
+                                        <i class="fas fa-trash"></i> Eliminar
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+<div class="modal fade @(showModal ? "show d-block" : "")" tabindex="-1" style="@(showModal ? "background-color: rgba(0,0,0,0.5);" : "")">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">@(isEditMode ? "Editar Reserva" : "Nueva Reserva")</h5>
+                <button type="button" class="btn-close" @onclick="HideModal"></button>
+            </div>
+            <div class="modal-body">
+                <EditForm Model="@_formData" OnValidSubmit="SaveReservation">
+                    <DataAnnotationsValidator />
+                    <ValidationSummary />
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Usuario:</label>
+                            <InputSelect class="form-control" @bind-Value="_formData.IdUsuario">
+                                <option value="">Seleccione un usuario</option>
+                                @foreach (var user in _users)
+                                {
+                                    <option value="@user.Id">@user.Nombre @user.Apellidos</option>
+                                }
+                            </InputSelect>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Hotel:</label>
+                            <InputSelect class="form-control" @bind-Value="_formData.IdHotel" @onchange="LoadHotelDetails">
+                                <option value="">Seleccione un hotel</option>
+                                @foreach (var hotel in _hotels)
+                                {
+                                    if (hotel.Activo)
+                                    {
+                                        <option value="@hotel.Id">@hotel.Nombre (@hotel.NumeroHabitaciones hab.)</option>
+                                    }
+                                }
+                            </InputSelect>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Número de Habitación:</label>
+                            <InputNumber class="form-control" @bind-Value="_formData.IdHabitacion" min="1" />
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Fecha de Entrada:</label>
+                            <InputDate class="form-control" @bind-Value="_formData.FechaEntradaDate" />
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Hora de Entrada:</label>
+                            <div class="time-picker-container">
+                                <input type="time" class="form-control" value="@_horaEntradaString" @onchange="OnHoraEntradaChanged" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Fecha de Salida (opcional):</label>
+                            <InputDate class="form-control" @bind-Value="_formData.FechaSalidaDate" />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Hora de Salida (opcional):</label>
+                            <div class="time-picker-container">
+                                <input type="time" class="form-control" value="@_horaSalidaString" @onchange="OnHoraSalidaChanged" />
+                            </div>
+                        </div>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(_reservationError))
+                    {
+                        <div class="alert alert-danger mt-3">@_reservationError</div>
+                    }
+
+                    <div class="modal-footer px-0 pb-0 mt-3">
+                        <button type="button" class="btn btn-secondary" @onclick="HideModal">Cancelar</button>
+                        <button type="submit" class="btn btn-info">Guardar Reservación</button>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter][SupplyParameterFromQuery] public int? editId { get; set; }
+
+    private List<ReservationDto> _reservations = new();
+    private List<UserDto> _users = new();
+    private List<HotelDto> _hotels = new();
+    private bool _loading = true;
+    private bool showModal = false;
+    private CreateReservationRequest _formData = new();
+    private string? _reservationError;
+    private bool isEditMode = false;
+    private int? editingReservationId = null;
+    private string _horaEntradaString = "";
+    private string _horaSalidaString = "";
+
+    protected override async Task OnInitializedAsync() => await LoadData();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (editId.HasValue)
+        {
+            await LoadData();
+            var res = _reservations.FirstOrDefault(r => r.Id == editId.Value);
+            if (res != null) EditReservation(res);
+        }
+    }
+
+    private async Task LoadData()
+    {
+        _loading = true;
+        await Task.WhenAll(LoadReservations(), LoadUsers(), LoadHotels());
+        _loading = false;
+    }
+
+    private async Task LoadReservations()
+    {
+        var reservations = await ReservationService.GetReservationsAsync();
+        _reservations = reservations.Select(r => new ReservationDto
+        {
+            Id = r.Id,
+            IdUsuario = r.IdUsuario,
+            IdHotel = r.IdHotel,
+            IdHabitacion = r.IdHabitacion,
+            FechaEntrada = r.FechaEntrada,
+            FechaSalida = r.FechaSalida,
+            Estado = r.Estado,
+            NombreHotel = r.Hotel?.Nombre ?? "Hotel #" + r.IdHotel,
+            NombreUsuario = r.Usuario != null ? $"{r.Usuario.Nombre} {r.Usuario.Apellidos}" : "N/A"
+        }).ToList();
+    }
+
+    private async Task LoadUsers() => _users = await UserService.GetUsersAsync();
+    private async Task LoadHotels() => _hotels = await HotelService.GetHotelsAsync();
+
+    private void ShowCreateForm()
+    {
+        _formData = new CreateReservationRequest();
+        _horaEntradaString = DateTime.Now.ToString("HH:mm");
+        _horaSalidaString = "";
+        _reservationError = null;
+        isEditMode = false;
+        editingReservationId = null;
+        showModal = true;
+    }
+
+    private void OnHoraEntradaChanged(ChangeEventArgs e)
+    {
+        _horaEntradaString = e.Value?.ToString() ?? "";
+        StateHasChanged();
+    }
+
+    private void OnHoraSalidaChanged(ChangeEventArgs e)
+    {
+        _horaSalidaString = e.Value?.ToString() ?? "";
+        StateHasChanged();
+    }
+
+    private async Task SaveReservation()
+    {
+        if (TimeSpan.TryParse(_horaEntradaString, out var tEntrada))
+        {
+            _formData.HoraEntrada = tEntrada.Hours;
+            _formData.MinutoEntrada = tEntrada.Minutes;
+        }
+
+        if (!string.IsNullOrEmpty(_horaSalidaString) && TimeSpan.TryParse(_horaSalidaString, out var tSalida))
+        {
+            _formData.HoraSalida = tSalida.Hours;
+            _formData.MinutoSalida = tSalida.Minutes;
+        }
+
+        _formData.CombinarFechaHora();
+        
+        if (isEditMode && editingReservationId.HasValue)
+        {
+            // Modo edición: actualizar la reserva existente
+            var (success, msg) = await ReservationService.UpdateReservationAsync(editingReservationId.Value, _formData);
+            
+            if (success)
+            {
+                HideModal();
+                await LoadReservations();
+            }
+            else _reservationError = msg;
+        }
+        else
+        {
+            // Modo creación: crear nueva reserva
+            var (success, msg) = await ReservationService.CreateReservationAsync(_formData);
+            
+            if (success)
+            {
+                HideModal();
+                await LoadReservations();
+            }
+            else _reservationError = msg;
+        }
+    }
+
+    private void EditReservation(ReservationDto res)
+    {
+        editingReservationId = res.Id;
+        _formData = new CreateReservationRequest
+        {
+            IdUsuario = res.IdUsuario,
+            IdHotel = res.IdHotel,
+            IdHabitacion = res.IdHabitacion,
+            FechaEntradaDate = DateOnly.FromDateTime(res.FechaEntrada),
+            HoraEntrada = res.FechaEntrada.Hour,
+            MinutoEntrada = res.FechaEntrada.Minute
+        };
+        _horaEntradaString = res.FechaEntrada.ToString("HH:mm");
+        if (res.FechaSalida.HasValue)
+        {
+            _formData.FechaSalidaDate = DateOnly.FromDateTime(res.FechaSalida.Value);
+            _horaSalidaString = res.FechaSalida.Value.ToString("HH:mm");
+        }
+        isEditMode = true;
+        showModal = true;
+    }
+
+    private async Task CancelReservation(int id)
+    {
+        if (await JSRuntime.InvokeAsync<bool>("confirm", "¿Está seguro de cancelar esta reservación?"))
+        {
+            await ReservationService.CancelReservationAsync(id);
+            await LoadReservations();
+        }
+    }
+
+    private async Task DeleteReservation(int id)
+    {
+        if (await JSRuntime.InvokeAsync<bool>("confirm", "¿Eliminar definitivamente esta reservación?"))
+        {
+            await ReservationService.DeleteReservationAsync(id);
+            await LoadReservations();
+        }
+    }
+
+    private void HideModal() { showModal = false; _reservationError = null; isEditMode = false; editingReservationId = null; }
+    private void ViewReservationDetails(int id) => NavigationManager.NavigateTo($"/reservations/reservationdetails/{id}");
+    private void LoadHotelDetails(ChangeEventArgs e) { }
+}
